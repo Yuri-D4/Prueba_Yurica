@@ -13,21 +13,21 @@ const campos = {
 	usuario: false,
 	nombre: false,
 	telefono: false,
+    
 	
 }
 
 const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
-			validarCampo(expresiones.usuairo, e.target, 'usuario');
+			validarCampo(expresiones.usuario, e.target, 'usuario');
 		break;
 		case "nombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
 		break;
 		case "telefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
-		
+		break;		
 	}
 }
 
@@ -64,8 +64,8 @@ formulario.addEventListener('submit', (e) => {
 		var comida = document.getElementById('comida').value;
 		// var fecha_ingreso = document.getElementById('').value;
 	
-		// var validar = "<?php echo $validar; >?";
-		// console.log(validar);
+		var validar = "<?php echo $validar; >?";
+		console.log(validar);
 
 	const terminos = document.getElementById('terminos');
 	if(campos.usuario && campos.nombre && campos.telefono && terminos.checked ){
