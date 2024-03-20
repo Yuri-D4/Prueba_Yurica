@@ -6,15 +6,13 @@ const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{10,30}$/, 
 	telefono: /^\d{9,12}$/,
 	
-	
 }
 
 const campos = {
 	usuario: false,
 	nombre: false,
 	telefono: false,
-    
-	
+    	
 }
 
 const validarFormulario = (e) => {
@@ -60,8 +58,8 @@ formulario.addEventListener('submit', (e) => {
 		var cedula = document.getElementById('usuario').value;
 		var nombre = document.getElementById('nombre').value;
 		var telefono = document.getElementById('telefono').value;
-		var atraccion = document.getElementById('atraccion').value;
-		var comida = document.getElementById('comida').value;
+		var atraccion = document.getElementById('id_atrac').value;
+		var comida = document.getElementById('id_com').value;
 		// var fecha_ingreso = document.getElementById('').value;
 	
 		var validar = "<?php echo $validar; >?";
@@ -70,11 +68,12 @@ formulario.addEventListener('submit', (e) => {
 	const terminos = document.getElementById('terminos');
 	if(campos.usuario && campos.nombre && campos.telefono && terminos.checked ){
 		formulario.reset();
-		console.log(cedula);console.log(nombre);console.log(telefono);console.log(atraccion);console.log(atraccion);
-		$.post ("registro.php?cod=datos",{cedula:cedula, nombre: nombre, telefono: telefono, atraccion: atraccion, comida: comida}, function(document){$("#mensaje").html(document);
-		
-		}),
-		
+		console.log(cedula);console.log(nombre);console.log(telefono);console.log(atraccion);console.log(comida);
+		$.post("registro.php?cod=datos", {cedula: cedula, nombre: nombre, telefono: telefono, atraccion: atraccion, comida: comida}, function(data) {
+            $("#mensaje").html(data);
+        });
+        
+
 		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
 		setTimeout(() => {
 			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');

@@ -56,7 +56,7 @@
                 <div class="formulario__grupo-input" id="grupo__atraccion">
                     <label for="id_atrac" class="formulario__label">Atraccion*</label>
                     <div class="formulario__grupo-select">               
-                        <select  name="atraccion" id="atraccion" class="formulario__select  " required>
+                        <select  name="id_atrac" id="id_atrac" class="formulario__select  " required>
                             <option value="" selected="">Seleccione atraccion</option>
                                 <?php
                                    /*Consulta para mostrar las opciones en el select */
@@ -74,7 +74,7 @@
                 <div class="formulario__grupo-input" id="grupo__telefono">
                     <label for="id_com" class="formulario__label">Comida*</label>
                     <div class="formulario__grupo-select">               
-                        <select  name="comida" id="comida" class="formulario__select  " required>
+                        <select  name="id_com" id="id_com" class="formulario__select  " required>
                             <option value="" selected="">Seleccione comida</option>
                                 <?php
                                    /*Consulta para mostrar las opciones en el select */

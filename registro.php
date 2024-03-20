@@ -18,11 +18,12 @@ $fila = $sql->fetch(PDO::FETCH_ASSOC);
 
 if ($fila) {
     echo '<script>alert("Este usuario ya existe. Por favor cámbielo.");</script>';
-    $validar = 0;
+    // $validar = 0;
 } else {
-    $insertSQL = $con->prepare("INSERT INTO usuario (cedula, nombre, telefono, atraccion, comida, fecha_ingreso) VALUES (:cedula, :nombre, :telefono, :atraccion, :comida, :fecha_ingreso)");
-    $insertSQL->execute(array(':cedula' => $cedula, ':nombre' => $nombre, ':telefono' => $telefono, ':atraccion' => $atraccion, ':comida' => $comida, ':fecha_ingreso' => $fecha_ingreso));
-    $validar = 1;
+
+    $insertSQL = $con->prepare("INSERT INTO usuario (cedula, nombre, telefono, id_atrac, id_com, fecha_ingreso) VALUES (:cedula, :nombre, :telefono, :id_atrac, :id_com, :fecha_ingreso)");
+    $insertSQL->execute(array(':cedula' => $cedula, ':nombre' => $nombre, ':telefono' => $telefono, ':id_atrac' => $atraccion, ':id_com' => $comida, ':fecha_ingreso' => $fecha_ingreso));
+    // $validar = 1;
 }
+
 ?>
-<script src="formulario.js"></script>
