@@ -22,13 +22,13 @@
         <form  method="POST" autocomplete="off" class="formulario" id="formulario">           
 
                 <div class="formulario__grupo-input" id="grupo__usuario">
-                    <label for="cedula" class="formulario__label">Cedula*</label>
+                    <label for="usuario" class="formulario__label">Cedula*</label>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="cedula" id="cedula" placeholder="Cedula">
+                            <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Cedula">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="formulario__input-error">
-                            El documento tiene que ser de 6 a 12 dígitos y solo puede contener numeros.</p>
+                            La cedula tiene que ser de 6 a 12 dígitos y solo puede contener numeros.</p>
                 </div>
 
                 <!-- div para capturar el nombre -->
@@ -43,7 +43,7 @@
                             El nombre tiene que ser de 10 a 30 dígitos y solo puede contener letras</p>
                 </div>
                 <!-- div para capturar el telefono -->
-                <div class="formulario__grupo-input" id="grupo__eps">
+                <div class="formulario__grupo-input" id="grupo__telefono">
                     <label for="telefono" class="formulario__label">Telefono*</label>
                         <div class="formulario__grupo-input">
                             <input type="text" class="formulario__input" onkeyup="mayus(this);" name="telefono" id="telefono" placeholder="Telefono">
@@ -53,11 +53,11 @@
                             El telefono que ser de 9 a 12 dígitos y solo puede contener numeros</p>
                 </div>
                 
-                <div class="formulario__grupo-input" id="grupo__telefono">
+                <div class="formulario__grupo-input" id="grupo__atraccion">
                     <label for="id_atrac" class="formulario__label">Atraccion*</label>
                     <div class="formulario__grupo-select">               
-                        <select  name="nombre_a" id="nombre_a" class="formulario__select  " required>
-                            <!-- <option value="" selected="">** Seleccione atraccion **</option> -->
+                        <select  name="atraccion" id="atraccion" class="formulario__select  " required>
+                            <option value="" selected="">Seleccione atraccion</option>
                                 <?php
                                    /*Consulta para mostrar las opciones en el select */
                                     $statement = $con->prepare('SELECT * from atraccion');
@@ -74,14 +74,14 @@
                 <div class="formulario__grupo-input" id="grupo__telefono">
                     <label for="id_com" class="formulario__label">Comida*</label>
                     <div class="formulario__grupo-select">               
-                        <select  name="nombre_c" id="id_com" class="formulario__select  " required>
-                            <!-- <option value="" selected="">** Seleccione comida **</option> -->
+                        <select  name="comida" id="comida" class="formulario__select  " required>
+                            <option value="" selected="">Seleccione comida</option>
                                 <?php
                                    /*Consulta para mostrar las opciones en el select */
                                     $statement = $con->prepare('SELECT * from comida ');
                                     $statement->execute();
                                     while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-                                      echo "<option value=" . $row['id_com'] . ">" . $row['nombre_c'] . "</option>";
+                                      echo "<option value=" . $row['id_com'] . ">" . $row['comida'] . "</option>";
                                     }
                                 ?>
                         </select>
@@ -89,6 +89,15 @@
                     
                 </div>  
 
+            <!-- fecha ingreso -->
+
+            <div class="formulario__grupo-input" id="grupo__fecha">
+                    <label for="fecha_ingreso" class="formulario__label">Fecha de Ingreso*</label>
+                        <div class="formulario__grupo-input">
+                            <input type="date" class="formulario__input" onkeyup="mayus(this);" name="fecha_ingreso" id="fecha_ingreso">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                </div>
               
                 <!-- Grupo: Terminos y Condiciones -->
             <div class="formulario__checkbox" id="grupo__terminos">
